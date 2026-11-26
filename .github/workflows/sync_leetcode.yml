@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Sync
-        uses: sts200/leetsync
+        uses: joshcai/leetcode-sync@v1.7
         with:
           github-token: ${{ github.token }}
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
@@ -19,9 +19,3 @@ jobs:
           destination-folder: my-folder
           verbose: true
           commit-header: "[LeetCode Sync]"
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
