@@ -1,21 +1,12 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        std::unordered_map<int, int> map;
-        int size = nums.size();
-        for(int i = 0; i < size; i++){
-            map.insert({nums[i], i});
-        }
-
-        for(int i = 0; i < size; i++){
-            int complement = target - nums[i];
-            if((map.find(complement) != map.end()) && (map[complement] != i)){
-                return {i, map[complement]};
+       int size = nums.size();
+       for(int i = 0; i < size; i++){
+            for(int j = i + 1; j < size; j++){
+                if(nums[i] + nums[j] == target) return {i, j};
             }
-        }
-
-        return {0, 0};
-
-
+       }
+       return {0, 0}; 
     }
 };
